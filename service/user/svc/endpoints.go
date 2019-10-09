@@ -1,14 +1,13 @@
-package user
+package svc
 
 import (
 	"context"
 	"github.com/go-kit/kit/endpoint"
-	"strings"
 )
 
 type UserRequest struct {
 	RequestType string `json:"request_type"`
-	Uid           int    `json:"uid"`
+	Uid         int    `json:"uid"`
 	B           int    `json:"b"`
 }
 
@@ -23,16 +22,16 @@ func MakeUserEndpoint(svc Service) endpoint.Endpoint {
 
 		var (
 			res, uid int
-			calError  error
+			calError error
 		)
 
 		uid = req.Uid
-
-		if strings.EqualFold(req.RequestType, "Get") {
-			res = svc.Get(uid)
-		} else {
-			return nil, nil
-		}
+		res = svc.Get(uid)
+		//if strings.EqualFold(req.RequestType, "Get") {
+		//	res = svc.Get(uid)
+		//} else {
+		//	return nil, nil
+		//}
 
 		return UserResponse{Result: res, Error: calError}, nil
 	}
