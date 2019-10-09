@@ -29,16 +29,13 @@ Powershell下:
 
     $env:GOPROXY="https://goproxy.io"
 
-
-#####   创建Service
-
-#####   编写Main方法
-
 #####   编译&运行
+
+访问： http://localhost:9000/user/1
 
 #####    TODO
 
-*[ ] 参数不是合法ID时，没有明确提示错误 比如：{"id":"x"}
+*[ ] todolist
 
 #####   更多参考
 
